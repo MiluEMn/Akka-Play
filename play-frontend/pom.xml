@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <parent>
+    <groupId>com.emnify.milu</groupId>
+    <artifactId>Akka-Play</artifactId>
+    <version>1.0-SNAPSHOT</version>
+  </parent>
+  <modelVersion>4.0.0</modelVersion>
+
+  <artifactId>play-frontend</artifactId>
+  <packaging>play2</packaging>
+
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+
+    <play2.plugin.version>1.0.0-rc2</play2.plugin.version>
+
+    <play2.version>2.5.18</play2.version>
+  </properties>
+
+  <build>
+    <sourceDirectory>${project.basedir}/app</sourceDirectory>
+    <testSourceDirectory>${project.basedir}/test</testSourceDirectory>
+    <resources>
+      <resource>
+        <directory>${project.basedir}/conf</directory>
+      </resource>
+    </resources>
+
+    <plugins>
+      <plugin>
+        <groupId>com.google.code.play2-maven-plugin</groupId>
+        <artifactId>play2-maven-plugin</artifactId>
+        <version>${play2.plugin.version}</version>
+        <extensions>true</extensions>
+        <configuration>
+          <mainLang>java</mainLang>
+        </configuration>
+        <executions>
+          <execution>
+            <id>dist</id>
+            <phase>package</phase>
+            <goals>
+              <goal>dist</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+    </plugins>
+  </build>
+
+  <dependencies>
+    <dependency>
+      <groupId>com.typesafe.play</groupId>
+      <artifactId>play-java_2.11</artifactId>
+      <version>${play2.version}</version>
+      <exclusions>
+        <exclusion>
+          <groupId>com.typesafe.akka</groupId>
+          <artifactId>akka-stream_2.11</artifactId>
+        </exclusion>
+        <exclusion>
+          <groupId>com.typesafe.akka</groupId>
+          <artifactId>akka_actor_2.11</artifactId>
+        </exclusion>
+        <exclusion>
+          <groupId>com.typesafe.akka</groupId>
+          <artifactId>akka-slf4j_2.11</artifactId>
+        </exclusion>
+      </exclusions>
+    </dependency>
+
+    <dependency>
+      <groupId>com.typesafe.play</groupId>
+      <artifactId>play-netty-server_2.11</artifactId>
+      <version>${play2.version}</version>
+    </dependency>
+
+    <dependency>
+      <groupId>com.typesafe.akka</groupId>
+      <artifactId>akka-stream_2.11</artifactId>
+      <version>${akka.version}</version>
+    </dependency>
+  </dependencies>
+</project>

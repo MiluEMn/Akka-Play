@@ -1,0 +1,11 @@
+GET   /                       controllers.Application.index()
+
+GET   /hello                  controllers.Application.hello(name: String ?= null)
+
+GET   /receivers              controllers.Data.getReceivers()
+
+GET   /receivers/:id          controllers.Data.getReceiver(id: Integer)
+
+GET   /receivers/:id/data     controllers.Data.retrieveData(id: Integer)
+
+POST  /send                   controllers.Data.sendMessage()
