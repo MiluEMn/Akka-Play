@@ -18,7 +18,6 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
     <maven.compiler.version>3.1</maven.compiler.version>
-    <play2.plugin.version>1.0.0-rc2</play2.plugin.version>
 
     <akka.version>2.5.11</akka.version>
     <logback.version>1.2.3</logback.version>

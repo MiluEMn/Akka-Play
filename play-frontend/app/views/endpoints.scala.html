@@ -1,0 +1,14 @@
+@(endpoints: List[String])
+
+<html>
+<head></head>
+<body>
+<h1>Available Endpoints</h1>
+<ul>
+  @for(endpoint <- endpoints) {
+  <li>@endpoint</li>
+  }
+</ul>
+</body>
+</html>
+

@@ -17,6 +17,7 @@
 
     <play2.plugin.version>1.0.0-rc2</play2.plugin.version>
 
+    <junit.version>4.12</junit.version>
     <play2.version>2.5.18</play2.version>
   </properties>
 
@@ -82,6 +83,20 @@
       <groupId>com.typesafe.akka</groupId>
       <artifactId>akka-stream_2.11</artifactId>
       <version>${akka.version}</version>
+    </dependency>
+
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>${junit.version}</version>
+      <scope>test</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>com.typesafe.play</groupId>
+      <artifactId>play-test_2.11</artifactId>
+      <version>${play2.version}</version>
+      <scope>test</scope>
     </dependency>
   </dependencies>
 </project>

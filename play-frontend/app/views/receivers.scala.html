@@ -1,0 +1,15 @@
+@(receivers: List[String])
+
+<html>
+<head></head>
+<body>
+<h1>Available Receivers</h1>
+<ul>
+  @for(receiver <- receivers) {
+  <li><a href="@routes.Data.retrieveData(receivers.indexOf(receiver))">
+    @receiver
+  </a></li>
+  }
+</ul>
+</body>
+</html>

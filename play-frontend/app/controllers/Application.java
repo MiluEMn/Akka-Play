@@ -1,7 +1,6 @@
 package controllers;
 
 import static java.util.concurrent.CompletableFuture.supplyAsync;
-import static util.JsonUtils.listToJson;
 
 import play.mvc.Controller;
 import play.mvc.Result;
@@ -21,13 +20,13 @@ public class Application extends Controller {
 
   public CompletionStage<Result> index() {
 
-    return supplyAsync(() -> ok(listToJson(getEndpoints())));
+    return supplyAsync(() -> ok(views.html.endpoints.render(getEndpoints())));
   }
 
   public CompletionStage<Result> hello(final String name) {
 
-    return supplyAsync(
-        () -> ok("Hello, " + (null != name && !"".equals(name.trim()) ? name : "World") + "!"));
+    return supplyAsync(() -> ok(
+        views.html.hello.render(null != name && !"".equals(name.trim()) ? name : "World")));
   }
 
   private static List<String> getEndpoints() {

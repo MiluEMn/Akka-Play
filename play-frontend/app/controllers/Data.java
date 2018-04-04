@@ -79,7 +79,7 @@ public class Data extends Controller {
         return internalServerError();
       }
 
-      return ok(listToJson(receivers));
+      return ok(views.html.receivers.render(receivers));
     });
   }
 
